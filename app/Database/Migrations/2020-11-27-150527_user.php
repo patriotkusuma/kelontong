@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -42,9 +44,14 @@ class User extends Migration
 				'type'				=> 'TEXT',
 				'constraint'		=> 250,
 			],
+			'user_role'				=> [
+				'type'				=> 'ENUM',
+				'constraint'		=> "'ADMIN','USER'",
+				'default'			=> 'USER'
+			],
 		]);
 
-		$this->forge->addKey('user_id',TRUE);
+		$this->forge->addKey('user_id', TRUE);
 		$this->forge->addUniqueKey('username');
 		$this->forge->createTable('users');
 	}
