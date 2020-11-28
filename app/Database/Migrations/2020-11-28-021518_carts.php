@@ -33,6 +33,7 @@ class Carts extends Migration
 		$this->forge->addPrimaryKey('cart_id');
 		$this->forge->addForeignKey('user_id','users','user_id','CASCADE','CASCADE');
 		$this->forge->createTable('carts');
+		
 	}
 
 	//--------------------------------------------------------------------
