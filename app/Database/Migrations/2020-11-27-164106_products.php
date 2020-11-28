@@ -50,7 +50,7 @@ class Products extends Migration
 		$this->forge->addPrimaryKey('product_id');
 		$this->forge->addForeignKey('category_id');
 		$this->forge->addUniqueKey('sku');
-		$this->forge->addUniqueKey('product_slug')
+		$this->forge->addUniqueKey('product_slug');
 	}
 
 	//--------------------------------------------------------------------
