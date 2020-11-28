@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -16,12 +18,12 @@ class Carts extends Migration
 			'user_id'				=> [
 				'type'				=> 'BIGINT',
 				'constraint'		=> 20,
-				'null'				=> TRUE,
+				'unsigned'			=> TRUE,
 			],
 			'product_id'			=> [
 				'type'				=> 'BIGINT',
 				'constraint'		=> 20,
-				'null'				=> TRUE,
+				'unsigned'			=> TRUE,
 			],
 			'qty'					=> [
 				'type'				=> 'INT',
@@ -31,15 +33,15 @@ class Carts extends Migration
 		]);
 
 		$this->forge->addPrimaryKey('cart_id');
-		$this->forge->addForeignKey('user_id','users','user_id','CASCADE','CASCADE');
+		$this->forge->addForeignKey('user_id', 'users', 'user_id', 'CASCADE', 'CASCADE');
+		$this->forge->addForeignKey('product_id', 'products', 'product_id', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('carts');
-		
 	}
 
 	//--------------------------------------------------------------------
 
 	public function down()
 	{
-		//
+		$this->forge->dropTable('carts');
 	}
 }

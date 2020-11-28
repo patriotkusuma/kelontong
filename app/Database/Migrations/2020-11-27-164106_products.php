@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -11,7 +13,7 @@ class Products extends Migration
 			'product_id'			=> [
 				'type'				=> 'BIGINT',
 				'constraint'		=> 20,
-				'unsignedd'			=> TRUE,
+				'unsigned'			=> TRUE,
 				'auto_increment'	=> TRUE,
 			],
 			'sku'					=> [
@@ -29,34 +31,36 @@ class Products extends Migration
 			'category_id'			=> [
 				'type'				=> 'BIGINT',
 				'constraint'		=> 20,
+				'unsigned'			=> TRUE
 			],
 			'harga'					=> [
-				'type'				=> 'REAL',
+				'type'				=> 'BIGINT',
 				'constraint'		=> 20,
-				'null'				=> TRUE,
+				'default'			=> 0
 			],
 			'stok'					=> [
-				'type'				=> 'int',
+				'type'				=> 'INT',
 				'constraint'		=> 11,
 				'null'				=> TRUE,
 			],
 			'status'				=> [
 				'type'				=> 'ENUM',
-				'constraint'		=> "'ACTIVE', 'INACTIVE",
-				'default'			=> 'ACTIVE'
+				'constraint'		=> "'ACTIVE', 'INACTIVE'",
+				'default'			=> 'ACTIVE',
 			],
 		]);
 
+		$this->forge->addForeignKey('category_id', 'categories', 'category_id', 'CASCADE', 'CASCADE');
 		$this->forge->addPrimaryKey('product_id');
-		$this->forge->addForeignKey('category_id','categories','category_id','CASCADE','CASCADE');
 		$this->forge->addUniqueKey('sku');
 		$this->forge->addUniqueKey('product_slug');
+		$this->forge->createTable('products');
 	}
 
 	//--------------------------------------------------------------------
 
 	public function down()
 	{
-		//
+		$this->forge->dropTable('products');
 	}
 }

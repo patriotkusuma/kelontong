@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -9,9 +11,9 @@ class Categories extends Migration
 		$this->forge->addField([
 			'category_id'			=> [
 				'type'				=> 'BIGINT',
-				'constraint'		=> 20, 
-				'auto_increment'	=> TRUE,
+				'constraint'		=> 20,
 				'unsigned'			=> TRUE,
+				'auto_increment'	=> TRUE,
 			],
 			'category_name'			=> [
 				'type'				=> 'VARCHAR',
@@ -19,13 +21,12 @@ class Categories extends Migration
 			],
 			'status'				=> [
 				'type'				=> 'ENUM',
-				'constraint'		=> "'ACTIVE','INACTIVE",
+				'constraint'		=> "'ACTIVE','INACTIVE'",
 				'default'			=> 'ACTIVE'
 			],
 		]);
 
 		$this->forge->addKey('category_id', TRUE);
-		$this->forge->addPrimaryKey('category_id');
 		$this->forge->createTable('categories');
 	}
 
@@ -33,6 +34,6 @@ class Categories extends Migration
 
 	public function down()
 	{
-		//
+		$this->forge->dropTable('categories');
 	}
 }

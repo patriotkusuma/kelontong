@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -16,7 +18,7 @@ class Pictures extends Migration
 			'product_id'			=> [
 				'type'				=> 'BIGINT',
 				'constraint'		=> 20,
-				'null'				=> TRUE,
+				'unsigned'			=> TRUE,
 			],
 			'picture_name'			=> [
 				'type'				=> 'VARCHAR',
@@ -25,7 +27,7 @@ class Pictures extends Migration
 		]);
 
 		$this->forge->addPrimaryKey('picture_id');
-		$this->forge->addForeignKey('product_id','products','product_id','CASCADE','CASCADE');
+		$this->forge->addForeignKey('product_id', 'products', 'product_id', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('pictures');
 	}
 
@@ -33,6 +35,6 @@ class Pictures extends Migration
 
 	public function down()
 	{
-		//
+		$this->forge->dropTable('pictures');
 	}
 }

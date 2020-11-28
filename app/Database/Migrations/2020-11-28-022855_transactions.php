@@ -1,4 +1,6 @@
-<?php namespace App\Database\Migrations;
+<?php
+
+namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
@@ -16,6 +18,7 @@ class Transactions extends Migration
 			'user_id'					=> [
 				'type'					=> 'BIGINT',
 				'constraint'			=> 20,
+				'unsigned'				=> TRUE,
 				'null'					=> TRUE,
 			],
 			'detail_transaction_id'		=> [
@@ -40,8 +43,8 @@ class Transactions extends Migration
 		]);
 
 		$this->forge->addPrimaryKey('transaction_id');
-		$this->forge->addForeignKey('user_id','users','user_id','CASCADE','CASCADE');
-		$this->forge->addForeignKey('detail_transactions_id','detail_transactions','detail_transactions_id','CASCADE','CASCADE');
+		$this->forge->addForeignKey('user_id', 'users', 'user_id', 'CASCADE', 'CASCADE');
+		$this->forge->addForeignKey('detail_transactions_id', 'detail_transactions', 'detail_transactions_id', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('transactions');
 	}
 
@@ -49,6 +52,6 @@ class Transactions extends Migration
 
 	public function down()
 	{
-		//
+		$this->forge->dropTable('transactions');
 	}
 }
