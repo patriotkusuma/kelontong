@@ -11,5 +11,5 @@ class Categories_model extends Model{
             return $this->getWhere(['category_id' => $id]);
         }
     }
+
 }
-?>

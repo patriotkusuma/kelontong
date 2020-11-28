@@ -1,3 +1,6 @@
+<?php $request = \Config\Services::request();
+$totalSegments = $request->uri->getTotalSegments() ?>
+
 <body class="hold-transition sidebar-mini layout-fixed">
   <?php echo view('themes/navbar') ?>
   <div class="wrapper">
@@ -10,12 +13,14 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
+              <h1 class="m-0"><?= $request->uri->getSegment(1) ?></h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Dashboard v1</li>
+                <li class="breadcrumb-item"><a href="<?= base_url() ?>">HOME</a></li>
+                <?php for ($i = 0; $i < $totalSegments; $i++) : ?>
+                  <li class="breadcrumb-item active"><a href="#"><?= $request->uri->getSegment($i) ?></a></li>
+                <?php endfor; ?>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
