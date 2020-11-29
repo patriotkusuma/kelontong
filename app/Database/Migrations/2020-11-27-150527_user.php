@@ -43,6 +43,7 @@ class User extends Migration
 			'address'				=> [
 				'type'				=> 'TEXT',
 				'constraint'		=> 250,
+				'null'				=> TRUE,
 			],
 			'user_role'				=> [
 				'type'				=> 'ENUM',

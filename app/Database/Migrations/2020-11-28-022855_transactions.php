@@ -21,11 +21,6 @@ class Transactions extends Migration
 				'unsigned'				=> TRUE,
 				'null'					=> TRUE,
 			],
-			'detail_transaction_id'		=> [
-				'type'					=> 'BIGINT',
-				'constraint'			=> 20,
-				'null'					=> TRUE,
-			],
 			'date'						=> [
 				'type'					=> 'DATETIME',
 				'null'					=> TRUE,
@@ -44,7 +39,6 @@ class Transactions extends Migration
 
 		$this->forge->addPrimaryKey('transaction_id');
 		$this->forge->addForeignKey('user_id', 'users', 'user_id', 'CASCADE', 'CASCADE');
-		$this->forge->addForeignKey('detail_transactions_id', 'detail_transactions', 'detail_transactions_id', 'CASCADE', 'CASCADE');
 		$this->forge->createTable('transactions');
 	}
 
