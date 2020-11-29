@@ -25,7 +25,7 @@ class DetailTransactions extends Migration
 		]);
 
 		$this->forge->addForeignKey('product_id','products','product_id','CASCADE','CASCADE');
-		$this->forge->addForeignKey('transaction_id','transaction','transaction_id','CASCADE','CASCADE');
+		$this->forge->addForeignKey('transaction_id','transactions','transaction_id','CASCADE','CASCADE');
 		$this->forge->createTable('detail_transactions');
 	}
 
