@@ -17,9 +17,26 @@ class Categories extends BaseController
 		return view('admin/category/index', $data);
 	}
 
+	public function edit($id = null)
+	{
+		$model = new Categories_model();
+		$get = $model->getCategories($id);
+
+		if ($get) {
+			return $get;
+		} else {
+			return "Nothing";
+		}
+	}
+
 	public function delete($id = null)
 	{
 		$model = new Categories_model();
+		$hapus = $model->deleteCategory($id);
+
+		if ($hapus) {
+			echo "Deleted Sucessfully";
+		}
 	}
 
 	//--------------------------------------------------------------------

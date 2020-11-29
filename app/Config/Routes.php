@@ -16,7 +16,7 @@ if (file_exists(SYSTEMPATH . 'Config/Routes.php')) {
  * Router Setup
  * --------------------------------------------------------------------
  */
-$routes->setDefaultNamespace('App\Controllers');
+$routes->setDefaultNamespace('App\Controllers\Admin');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
@@ -32,7 +32,9 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
-$routes->get('/admin/categories', 'Admin/Categories::index');
+$routes->get('/admin/categories', 'Categories::index');
+$routes->delete('/admin/categories/(:num)', 'Categories::delete/$1');
+$routes->get('/admin/categories/(:num)', 'Categories::edit/$1');
 
 /**
  * --------------------------------------------------------------------

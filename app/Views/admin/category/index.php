@@ -37,12 +37,12 @@
                     </thead>
                     <tbody>
                         <?php foreach ($categories as $key => $value) : ?>
-                            <tr>
+                            <tr id="data-category-<?= $value['category_id'] ?>">
                                 <td><?= $key + 1; ?></td>
                                 <td><?= $value['category_name']; ?></td>
                                 <td class="btn btn-<?= $value['status'] == 'ACTIVE' ? 'success' : 'danger' ?>"><?= $value['status']; ?></td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#editModal">
+                                    <button type="button" class="btn btn-success modal-edit" data-toggle="modal" data-target="#editModal">
                                         <i class="fas fa-edit"></i>
                                         Edit
                                     </button>
@@ -101,18 +101,51 @@
 
 <script>
     $('.category-hapus').click(function() {
+        var id = $(this).attr("id");
+
         Swal.fire({
-            title: 'Do you want to save the changes?',
-            showDenyButton: true,
+            title: 'Do you want to delete?',
+            icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: `Save`,
-            denyButtonText: `Don't save`,
+            confirmButtonClass: `btn-danger`,
+            confirmButtonText: `Yes, delete it!`,
+            cancelButtonClass: `btn-success`,
+            cancelButtonText: `No, Cancel it!`
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                Swal.fire('Saved!', '', 'success')
-            } else if (result.isDenied) {
-                Swal.fire('Changes are not saved', '', 'info')
+                $.ajax({
+                    url: 'http://localhost:8080/admin/categories/' + id,
+                    type: 'delete',
+                    error: function(data) {
+                        Swal.fire({
+                            title: 'Someting is wrong',
+                            icon: 'warning',
+                            text: data,
+                        })
+                    },
+                    success: function(data) {
+                        $('#data-category-' + id).remove();
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            icon: 'success',
+                            title: 'Data Deteled Successfully',
+                        })
+                    }
+                })
+            } else {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    icon: 'info',
+                    title: 'Change are not save!',
+                    text: 'Your data is saved!'
+                })
             }
         })
     })
