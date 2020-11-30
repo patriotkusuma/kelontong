@@ -1,4 +1,6 @@
-<?php namespace Config;
+<?php
+
+namespace Config;
 
 class Validation
 {
@@ -28,6 +30,20 @@ class Validation
 	public $templates = [
 		'list'   => 'CodeIgniter\Validation\Views\list',
 		'single' => 'CodeIgniter\Validation\Views\single',
+	];
+
+	public $categories = [
+		'category_name'		=> 'required',
+		'status'			=> 'required',
+	];
+
+	public $categories_errors = [
+		'category_name'		=> [
+			'required'		=> 'Nama kategory wajib diisi.',
+		],
+		'status'			=> [
+			'required'		=> 'Status category wajib diisi.'
+		]
 	];
 
 	//--------------------------------------------------------------------

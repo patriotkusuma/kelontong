@@ -7,7 +7,7 @@
                 <h3 class="card-title">Manage Category</h3>
                 <div class="card-tools form-inline">
                     <div class="mr-3">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        <button type="button" id="tambah-data" class="btn btn-primary">
                             <i class="fas fa-plus-circle mr-2"></i>
                             Tambah Data
                         </button>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0" style="height: 300px;">
+            <div class="card-body table-responsive p-0" style="height: 500px;">
                 <table class="table table-head-fixed text-nowrap">
                     <thead>
                         <tr>
@@ -35,24 +35,8 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <?php foreach ($categories as $key => $value) : ?>
-                            <tr id="data-category-<?= $value['category_id'] ?>">
-                                <td><?= $key + 1; ?></td>
-                                <td><?= $value['category_name']; ?></td>
-                                <td class="btn btn-<?= $value['status'] == 'ACTIVE' ? 'success' : 'danger' ?>"><?= $value['status']; ?></td>
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-success modal-edit" data-toggle="modal" data-target="#editModal">
-                                        <i class="fas fa-edit"></i>
-                                        Edit
-                                    </button>
-                                    <a class="btn btn-danger category-hapus" id="<?= $value['category_id'] ?>">
-                                        <i class="fas fa-trash-alt"></i>
-                                        Hapus
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php endforeach; ?>
+                    <tbody id="table-body">
+
                     </tbody>
                 </table>
             </div>
@@ -63,7 +47,7 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -72,25 +56,26 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="<?= base_url() ?>/admin/categories/proses" method="POST">
+            <form>
                 <div class="modal-body">
+                    <input type="hidden" name="category_id" id="category_id">
                     <div class="form-group">
                         <label for="category_name">Category Name</label>
                         <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Category Name">
                     </div>
                     <div class="form-group">
                         <label for="category_status">Category Status</label>
-                        <select name="category_status" class="form-control" id="">
+                        <select name="category_status" class="form-control" id="category_status">
                             <option value="">Pilih Status</option>
-                            <option value="ACTIVE">Active</option>
-                            <option value="INACTIVE">Tidak Active</option>
+                            <option value="ACTIVE">ACTIVE</option>
+                            <option value="INACTIVE">INACTIVE</option>
                         </select>
                     </div>
 
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <a name="submit" class="btn btn-primary">Save changes</a>
                 </div>
             </form>
         </div>
@@ -100,22 +85,57 @@
 <?= view('themes/body') ?>
 
 <script>
-    $('.category-hapus').click(function() {
-        var id = $(this).attr("id");
+    function updateData(id) {
+        $('#category_id').val(id);
+        $('#myModal').modal('show');
+        $.ajax({
+            url: 'http://localhost:8081/admin/categories/' + id,
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                $('#category_name').val(data['category_name']);
+                $('#category_status option[value=' + data['status'] + ']').attr('selected', 'selected');
 
+                $("[name='submit']").click(function() {
+                    var category_name = $('#category_name').val();
+                    var category_status = $('#category_status').val();
+
+                    $.ajax({
+                        url: '<?= base_url() ?>/admin/categories/update/' + id,
+                        type: 'post',
+                        data: 'category_name=' + category_name + '&category_status=' + category_status,
+                        dataType: 'json',
+                        success: function(data) {
+                            $('#myModal').modal('hide');
+                            loadData();
+
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                icon: 'success',
+                                title: 'Update Data Successfully',
+                            })
+                        }
+                    })
+                });
+            }
+        })
+    }
+
+    function deleteData(id) {
         Swal.fire({
             title: 'Do you want to delete?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonClass: `btn-danger`,
             confirmButtonText: `Yes, delete it!`,
-            cancelButtonClass: `btn-success`,
             cancelButtonText: `No, Cancel it!`
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 $.ajax({
-                    url: 'http://localhost:8080/admin/categories/' + id,
+                    url: '<?= base_url() ?>/admin/categories/' + id,
                     type: 'delete',
                     error: function(data) {
                         Swal.fire({
@@ -125,7 +145,8 @@
                         })
                     },
                     success: function(data) {
-                        $('#data-category-' + id).remove();
+                        $('#table-body').empty();
+                        loadData();
                         Swal.fire({
                             toast: true,
                             position: 'top-end',
@@ -148,6 +169,83 @@
                 })
             }
         })
-    })
+    }
+
+    function loadData() {
+
+        $('#table-body').empty();
+        $.ajax({
+            url: '<?= base_url('/admin/categories/show') ?>',
+            type: 'get',
+            dataType: 'json',
+            success: function(data) {
+                $.each(data, function(key, value) {
+                    key = key + 1;
+                    if (value['status'] == 'ACTIVE') {
+                        var status = 'success';
+                    } else {
+                        var status = 'danger';
+                    }
+                    $('#table-body').append(`
+                        <tr>
+                            <td>` + key + `</td>
+                            <td>` + value['category_name'] + `</td>
+                            <td><a class="btn btn-` + status + `">` + value['status'] + `</a></td>
+                            <td class="text-center">
+                                <a class="btn btn-success modal-edit" onclick="updateData(` + value['category_id'] + `)">
+                                        <i class="fas fa-edit"></i>
+                                        Edit
+                                </a>
+                                <a class="btn btn-danger category-hapus" onclick="deleteData(` + value['category_id'] + `)">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Hapus
+                                </a>
+                            </td>
+                        </tr>
+                    `);
+                })
+            }
+        })
+    }
+    $(document).ready(function() {
+        loadData();
+
+        // Tambah Data
+        $('#tambah-data').click(function() {
+            $("[name='category_name']").val('');
+            $("[name='category_status']").val('');
+            $('#myModal').modal('show');
+            $("[name='submit']").click(function() {
+                var nama = $("[name='category_name']").val();
+                var status = $("[name='category_status']").val();
+                console.log(nama);
+                $.ajax({
+                    url: '<?= base_url(); ?>/admin/categories/add',
+                    type: 'post',
+                    data: 'category_name=' + nama + '&category_status=' + status,
+                    dataType: 'json',
+                    success: function(data) {
+                        if (data['status'] == 200) {
+                            $('#myModal').modal('hide');
+                            $('#table-body').empty();
+                            loadData();
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000,
+                                icon: 'success',
+                                title: 'Data Inserted Successfully',
+                            })
+                        }
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                })
+            })
+
+        });
+    });
 </script>
 <?= view('themes/footer') ?>

@@ -8,24 +8,67 @@ use App\Models\Categories_model;
 
 class Categories extends BaseController
 {
+	public function __construct()
+	{
+		helper(['form']);
+	}
 	public function index()
 	{
-		$model = new Categories_model();
-		$uri = $this->request->uri->getSegment(1);
-		$data['categories'] = $model->getCategories();
-		$data['segments'] = $uri;
-		return view('admin/category/index', $data);
+		return view('admin/category/index');
 	}
 
+	public function show()
+	{
+		$model = new Categories_model();
+		$data = $model->getCategories();
+
+		return json_encode($data);
+	}
+
+	public function add()
+	{
+
+		$validation = \Config\Services::validation();
+
+		$model = new Categories_model();
+
+		$name = $this->request->getPost('category_name');
+		$status = $this->request->getPost('category_status');
+
+		$data = [
+			'category_name'		=> $name,
+			'status'			=> $status,
+		];
+
+		if ($validation->run($data, 'categories') == FALSE) {
+			$respone = [
+				'status'	=> 500,
+				'error'		=> true,
+				'data'		=> $validation->getError()
+			];
+			return json_encode($respone);
+		} else {
+			$simpan = $model->insertCategory($data);
+			if ($simpan) {
+				$msg = ['message' => 'Created Category Succesffuly'];
+				$respone = [
+					'status'		=> 200,
+					'error'			=> false,
+					'data'			=> $msg
+				];
+				return json_encode($respone);
+			}
+		}
+	}
 	public function edit($id = null)
 	{
 		$model = new Categories_model();
 		$get = $model->getCategories($id);
 
 		if ($get) {
-			return $get;
+			return json_encode($get);
 		} else {
-			return "Nothing";
+			return json_encode('Nothing');
 		}
 	}
 
@@ -36,6 +79,41 @@ class Categories extends BaseController
 
 		if ($hapus) {
 			echo "Deleted Sucessfully";
+		}
+	}
+
+	public function update($id = null)
+	{
+		$validation = \Config\Services::validation();
+
+		$model = new Categories_model();
+
+		$name = $this->request->getPost('category_name');
+		$status = $this->request->getPost('category_status');
+
+		$data = [
+			'category_name'		=> $name,
+			'status'			=> $status,
+		];
+
+		if ($validation->run($data, 'categories') == FALSE) {
+			$respone = [
+				'status'	=> 500,
+				'error'		=> true,
+				'data'		=> $validation->getError()
+			];
+			return json_encode($respone);
+		} else {
+			$update = $model->updateCategory($data, $id);
+			if ($update) {
+				$msg = ['message' => 'Update Category Succesffuly'];
+				$respone = [
+					'status'		=> 200,
+					'error'			=> false,
+					'data'			=> $msg
+				];
+				return json_encode($respone);
+			}
 		}
 	}
 

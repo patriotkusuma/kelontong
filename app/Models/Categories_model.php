@@ -17,8 +17,22 @@ class Categories_model extends Model
         }
     }
 
+    public function insertCategory($data)
+    {
+        return $this->db->table($this->table)->insert($data);
+    }
+
     public function deleteCategory($id)
     {
         return $this->db->table($this->table)->delete(['category_id' => $id]);
+    }
+
+    public function updateCategory($data, $id)
+    {
+        $where = $this->db->table($this->table)->where('category_id', $id);
+
+        if ($where) {
+            return $where->update($data);
+        }
     }
 }
