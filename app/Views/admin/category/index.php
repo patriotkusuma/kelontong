@@ -86,6 +86,12 @@
 <?= view('themes/body') ?>
 
 <script>
+    $(document).ready(function() {
+        loadData();
+
+
+    });
+
     function submit(id) {
 
         $('#category_name').val('');
@@ -254,9 +260,5 @@
             }
         })
     }
-
-    $(document).ready(function() {
-        loadData();
-    });
 </script>
 <?= view('themes/footer') ?>
