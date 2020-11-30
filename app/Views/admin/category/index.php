@@ -4,10 +4,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Manage Category</h3>
+                <h1 class="card-title">Manage Category</h1>
                 <div class="card-tools form-inline">
                     <div class="mr-3">
-                        <button type="button" id="tambah-data" class="btn btn-primary">
+                        <button type="button" data-toggle="modal" data-target="#myModal" id="tambah-data" onclick="submit('tambah')" class="btn btn-primary">
                             <i class="fas fa-plus-circle mr-2"></i>
                             Tambah Data
                         </button>
@@ -51,7 +51,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+                <h5 class="modal-title" id="myModalTitle">Tambah Data</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -75,7 +75,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a name="submit" class="btn btn-primary">Save changes</a>
+                    <a onclick="tambahData()" class="btn btn-primary " id="btn-tambah">Tambah Data</a>
+                    <a onclick="updateData()" class="btn btn-primary " id="btn-ubah">Ubah</a>
                 </div>
             </form>
         </div>
@@ -85,52 +86,96 @@
 <?= view('themes/body') ?>
 
 <script>
-    function updateData(id) {
-        $('#category_id').val(id);
-        $('#myModal').modal('show');
+    function submit(id) {
+        if (id == 'tambah') {
+            $('#myModalTitle').text('Tambah Data');
+            $('#btn-tambah').show();
+            $('#btn-ubah').hide();
+            $('#category_name').val('');
+            $('#category_status').val('');
+        } else {
+            $('#myModalTitle').text('Ubah Data');
+            $('#btn-tambah').hide();
+            $('#btn-ubah').show();
+
+            $.ajax({
+                url: '<?= base_url(); ?>/admin/categories/' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function(data) {
+                    $('#category_id').val(data['category_id']);
+                    $('#category_name').val(data['category_name']);
+                    $('#category_status option[value=' + data['status'] + ']').attr('selected', 'selected');
+                }
+            })
+        }
+    }
+
+    function updateData() {
+        var id = $('#category_id').val();
+        var category_name = $('#category_name').val();
+        var category_status = $('#category_status').val();
+
         $.ajax({
-            url: 'http://localhost:8081/admin/categories/' + id,
-            type: 'get',
+            url: '<?= base_url() ?>/admin/categories/update/' + id,
+            type: 'post',
+            data: 'category_name=' + category_name + '&category_status=' + category_status,
             dataType: 'json',
             success: function(data) {
-                $('#category_name').val(data['category_name']);
-                $('#category_status option[value=' + data['status'] + ']').attr('selected', 'selected');
+                $('#myModal').modal('hide');
+                loadData();
 
-                $("[name='submit']").click(function() {
-                    var category_name = $('#category_name').val();
-                    var category_status = $('#category_status').val();
-
-                    $.ajax({
-                        url: '<?= base_url() ?>/admin/categories/update/' + id,
-                        type: 'post',
-                        data: 'category_name=' + category_name + '&category_status=' + category_status,
-                        dataType: 'json',
-                        success: function(data) {
-                            $('#myModal').modal('hide');
-                            loadData();
-
-                            Swal.fire({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                icon: 'success',
-                                title: 'Update Data Successfully',
-                            })
-                        }
-                    })
-                });
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    icon: 'success',
+                    title: 'Update Data Successfully',
+                })
             }
+        })
+    }
+
+    function tambahData() {
+        var category_name = $('#category_name').val();
+        var category_status = $('#category_status').val();
+
+        $.ajax({
+            url: '<?= base_url() ?>/admin/categories/add',
+            type: 'post',
+            data: 'category_name=' + category_name + '&category_status=' + category_status,
+            dataType: 'json',
+            success: function(data) {
+                if (data['status'] == 200) {
+                    $('#myModal').modal('hide');
+                    $('#table-body').empty();
+                    loadData();
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        icon: 'success',
+                        title: 'Data Inserted Successfully',
+                    })
+                }
+            },
         })
     }
 
     function deleteData(id) {
         Swal.fire({
-            title: 'Do you want to delete?',
+            title: 'Apakah anda yakin?',
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: `Yes, delete it!`,
-            cancelButtonText: `No, Cancel it!`
+            confirmButtonText: `Iya, Hapus saja!`,
+            cancelButtonText: `Tidak, Batal!`,
+            customClass: {
+                confirmButton: 'btn btn-danger mr-3',
+                cancelButton: 'btn btn-primary',
+            },
+            buttonsStyling: false,
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
@@ -192,7 +237,7 @@
                             <td>` + value['category_name'] + `</td>
                             <td><a class="btn btn-` + status + `">` + value['status'] + `</a></td>
                             <td class="text-center">
-                                <a class="btn btn-success modal-edit" onclick="updateData(` + value['category_id'] + `)">
+                                <a class="btn btn-success modal-edit" data-toggle="modal" data-target="#myModal" onclick="submit(` + value['category_id'] + `)">
                                         <i class="fas fa-edit"></i>
                                         Edit
                                 </a>
@@ -207,45 +252,9 @@
             }
         })
     }
+
     $(document).ready(function() {
         loadData();
-
-        // Tambah Data
-        $('#tambah-data').click(function() {
-            $("[name='category_name']").val('');
-            $("[name='category_status']").val('');
-            $('#myModal').modal('show');
-            $("[name='submit']").click(function() {
-                var nama = $("[name='category_name']").val();
-                var status = $("[name='category_status']").val();
-                console.log(nama);
-                $.ajax({
-                    url: '<?= base_url(); ?>/admin/categories/add',
-                    type: 'post',
-                    data: 'category_name=' + nama + '&category_status=' + status,
-                    dataType: 'json',
-                    success: function(data) {
-                        if (data['status'] == 200) {
-                            $('#myModal').modal('hide');
-                            $('#table-body').empty();
-                            loadData();
-                            Swal.fire({
-                                toast: true,
-                                position: 'top-end',
-                                showConfirmButton: false,
-                                timer: 3000,
-                                icon: 'success',
-                                title: 'Data Inserted Successfully',
-                            })
-                        }
-                    },
-                    error: function(error) {
-                        console.log(error);
-                    }
-                })
-            })
-
-        });
     });
 </script>
 <?= view('themes/footer') ?>
