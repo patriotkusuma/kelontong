@@ -87,7 +87,7 @@
 
 <script>
     $(document).ready(function() {
-        setInterval(loadData,1000);
+        setInterval(loadData,10000);
     });
 
     function submit(id) {
