@@ -32,6 +32,7 @@
 <script src="<?= base_url() ?>/themes/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url() ?>/themes/dist/js/pages/dashboard.js"></script>
+<?= $this->renderSection('custom_js') ?>
 </body>
 
 </html>

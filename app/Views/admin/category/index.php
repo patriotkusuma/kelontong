@@ -1,3 +1,9 @@
+<?= $this->section('custom_css') ?>
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+
+<?= $this->endSection() ?>
 <?= view('themes/head') ?>
 <?= $this->section('content') ?>
 <div class="row">
@@ -12,24 +18,15 @@
                             Tambah Data
                         </button>
                     </div>
-                    <div class="input-group input-group-sm" style="width: 150px;">
-
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0" style="height: 500px;">
-                <table class="table table-head-fixed text-nowrap">
+            <div class="card-body table-responsive p-16">
+                <table class="table table-head-fixed text-nowrap" id="table-category">
                     <thead>
                         <tr>
-                            <th>No</th>
+                            <th></th>
                             <th>Category</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
@@ -86,8 +83,53 @@
 <?= view('themes/body') ?>
 
 <script>
+    var table;
     $(document).ready(function() {
-        loadData();
+        table = $('#table-category').DataTable( {
+            ajax: {
+                url: "<?= base_url('/admin/categories/show') ?>",
+                dataSrc: 'results'
+            },
+            responsive: true,
+            bInfo: false,
+            lengthMenu: [
+                [5, 10, 25],
+                [5, 10, 25],
+            ],
+            lengthChange: true,
+            bProcessing: true,
+            retrieve: true,
+            language: {
+                processing: "Sedang memuat data..",
+            },
+            columns: [
+                {   
+                    data: null,
+                    sortable: false,
+                    render: function(data, type, row, meta){
+                        return meta.row+1;
+                    }
+                },
+                { data: 'category_name' },
+                { 
+                    data: 'status' ,
+                    mRender: function(data, type, row){
+                        if(data == 'ACTIVE'){
+                            return `<a class='btn btn-success'>`+data+`</a>`
+                        }else{
+                            return `<a class='btn btn-danger'>`+data+`</a>`
+                        }
+                    }
+                }, 
+                {
+                    data: 'category_id',
+                    render: function(data, type, row){
+                        return `<a data-toggle="modal" onclick="submit(`+data+`)" class="btn btn-success" data-target="#myModal" ><i class="fas fa-edit"></i>Edit</a> <a class="btn btn-danger" onclick="deleteData(`+data+`)"><i class="fas fa-trash-alt"></i>Hapus</a>`
+                    },
+                    
+                }
+            ],
+        });
     });
 
     function submit(id) {
@@ -129,7 +171,7 @@
             dataType: 'json',
             success: function(data) {
                 $('#myModal').modal('hide');
-                loadData();
+                table.ajax.reload();
 
                 Swal.fire({
                     toast: true,
@@ -154,9 +196,8 @@
             dataType: 'json',
             success: function(data) {
                 if (data['status'] == 200) {
+                    table.ajax.reload();
                     $('#myModal').modal('hide');
-                    $('#table-body').empty();
-                    loadData();
                     Swal.fire({
                         toast: true,
                         position: 'top-end',
@@ -196,8 +237,7 @@
                         })
                     },
                     success: function(data) {
-                        $('#table-body').empty();
-                        loadData();
+                        table.ajax.reload();
                         Swal.fire({
                             toast: true,
                             position: 'top-end',
@@ -222,41 +262,12 @@
         })
     }
 
-    function loadData() {
-
-        $('#table-body').empty();
-        $.ajax({
-            url: '<?= base_url('/admin/categories/show') ?>',
-            type: 'get',
-            dataType: 'json',
-            success: function(data) {
-                $.each(data, function(key, value) {
-                    key = key + 1;
-                    if (value['status'] == 'ACTIVE') {
-                        var status = 'success';
-                    } else {
-                        var status = 'danger';
-                    }
-                    $('#table-body').append(`
-                        <tr>
-                            <td>` + key + `</td>
-                            <td>` + value['category_name'] + `</td>
-                            <td><a class="btn btn-` + status + `">` + value['status'] + `</a></td>
-                            <td class="text-center">
-                                <a class="btn btn-success modal-edit" data-toggle="modal" data-target="#myModal" onclick="submit(` + value['category_id'] + `)">
-                                        <i class="fas fa-edit"></i>
-                                        Edit
-                                </a>
-                                <a class="btn btn-danger category-hapus" onclick="deleteData(` + value['category_id'] + `)">
-                                    <i class="fas fa-trash-alt"></i>
-                                    Hapus
-                                </a>
-                            </td>
-                        </tr>
-                    `);
-                })
-            }
-        })
-    }
+    
 </script>
+<?= $this->section('custom_js') ?>
+<!-- DataTables  & Plugins -->
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+
+<?= $this->endSection() ?>
 <?= view('themes/footer') ?>

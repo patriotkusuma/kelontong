@@ -20,7 +20,7 @@ class Categories extends BaseController
 	public function show()
 	{
 		$model = new Categories_model();
-		$data = $model->getCategories();
+		$data['results'] = $model->getCategories();
 
 		return json_encode($data);
 	}
