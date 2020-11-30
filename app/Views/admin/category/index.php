@@ -87,12 +87,14 @@
 
 <script>
     function submit(id) {
+
+        $('#category_name').val('');
+        $('#category_status').val('');
+
         if (id == 'tambah') {
             $('#myModalTitle').text('Tambah Data');
             $('#btn-tambah').show();
             $('#btn-ubah').hide();
-            $('#category_name').val('');
-            $('#category_status').val('');
         } else {
             $('#myModalTitle').text('Ubah Data');
             $('#btn-tambah').hide();
@@ -105,7 +107,7 @@
                 success: function(data) {
                     $('#category_id').val(data['category_id']);
                     $('#category_name').val(data['category_name']);
-                    $('#category_status option[value=' + data['status'] + ']').attr('selected', 'selected');
+                    $('#category_status').val(data['status']);
                 }
             })
         }
