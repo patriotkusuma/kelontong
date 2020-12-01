@@ -122,6 +122,8 @@
             retrieve: true,
             language: {
                 processing: "Sedang memuat data..",
+                decimal: ",",
+                thousands: "."
             },
             columns: [
                 {   
@@ -134,7 +136,10 @@
                 {data: 'sku'},
                 {data: 'name'},
                 {data: 'category_name'},
-                {data: 'harga'},
+                {
+                    data: 'harga',
+                    render: $.fn.dataTable.render.number( ',', '.', 2, 'Rp ' )
+                },
                 {data: 'stok'},
                 {
                     data: 'status',
