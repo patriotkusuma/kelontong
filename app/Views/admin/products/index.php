@@ -301,14 +301,14 @@
                     },
                     success: function(data) {
                         table.ajax.reload();
-                        console.log(data['data']);
+
                         Swal.fire({
                             toast: true,
                             position: 'top-end',
                             showConfirmButton: false,
                             timer: 3000,
                             icon: 'success',
-                            title: data['data'],
+                            title: "Data Deleted Successfully",
                         })
                     }
                 })

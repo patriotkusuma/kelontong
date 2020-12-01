@@ -83,20 +83,13 @@ class Products extends BaseController
 
         if($result){
             $msg = ['message' => 'Product Deleted Successfully'];
-            $response = [
+            $response['results'] = [
                 'status'    => 200,
                 'error'     => false,
                 'data'      => $msg
             ];
 
             
-        }else{
-            $msg = ['message' => 'Product Deleted Failed'];
-            $response = [
-                'status'    => 500,
-                'error'     => false,
-                'data'      => $msg
-            ];
         }
 
         return json_encode($response);
