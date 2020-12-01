@@ -44,7 +44,7 @@ class Categories extends BaseController
 
 		$data = [
 			'category_name'		=> $name,
-			'status'			=> $status,
+			'category_status'			=> $status,
 		];
 
 		if ($validation->run($data, 'categories') == FALSE) {
@@ -100,7 +100,7 @@ class Categories extends BaseController
 
 		$data = [
 			'category_name'		=> $name,
-			'status'			=> $status,
+			'category_status'			=> $status,
 		];
 
 		if ($validation->run($data, 'categories') == FALSE) {

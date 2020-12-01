@@ -142,7 +142,7 @@
                 },
                 {data: 'stok'},
                 {
-                    data: 'status',
+                    data: 'product_status',
                     mRender: function(data, type, row){
                         if(data == 'ACTIVE'){
                             return `<a class='btn btn-success'>`+data+`</a>`
@@ -163,9 +163,14 @@
     });
 
     function submit(id) {
+        $('#product_id').val('');
+        $('#sku').val('');
+        $('#name').val('');
+        $('#category_id').val('');
+        $('#harga').val('');
+        $('#stok').val('');
+        $('#status').val('');
 
-        $('#category_name').val('');
-        $('#category_status').val('');
 
         if (id == 'tambah') {
             $('#myModalTitle').text('Tambah Data');
@@ -208,8 +213,7 @@
                         $('#category_id').val(value['category_id']);
                         $('#harga').val(value['harga']);
                         $('#stok').val(value['stok']);
-                        $('#status').val(value['status']);
-                        
+                        $('#status').val(value['product_status']);
                     });
                 },
                 error: function(error){
@@ -231,7 +235,8 @@
         $.ajax({
             url: '<?= base_url() ?>/admin/products/update/' + id,
             type: 'post',
-            data: 'sku='+sku+'&name='+name+'&category_id='+category_id+'&harga='+harga+'&stok='+stok+'&status'+status,
+            data: 'sku=' + sku +'&name='+name+'&category_id='+category_id+'&harga='+harga+'&stok='+stok+'&status='+status,
+            dataType: 'json',
             success: function(data) {
                 $('#myModal').modal('hide');
                 table.ajax.reload();
@@ -244,6 +249,9 @@
                     icon: 'success',
                     title: 'Update Data Successfully',
                 })
+            },
+            error: function(error){
+                console.log(error);
             }
         })
     }

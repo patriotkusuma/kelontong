@@ -44,7 +44,7 @@ class Products extends BaseController
             'category_id'   => $categoryId,
             'harga'         => $harga,
             'stok'          => $stok,
-            'status'        => $status,
+            'product_status'        => $status,
         ];
 
         $simpan = $model->insertProducts($data);
@@ -64,7 +64,7 @@ class Products extends BaseController
         $get[] = $model->getProducts($id);
 
         $modelCategory = new Categories_model();
-        $getCategory = $modelCategory->where('status', 'ACTIVE')->findall();
+        $getCategory = $modelCategory->where('category_status', 'ACTIVE')->findall();
 
         $data = [
             'product'   => $get,
@@ -79,7 +79,6 @@ class Products extends BaseController
 
     public function update($id = null){
         $model = new Products_model();
-        $id =  $model->getProducts($id);
 
         $sku = $this->request->getPost('sku');
         $name = $this->request->getPost('name');
@@ -96,7 +95,7 @@ class Products extends BaseController
             'category_id'   => $categoryId,
             'harga'         => $harga,
             'stok'          => $stok,
-            'status'        => $status,
+            'product_status'        => $status,
         ];
         
         if($id){

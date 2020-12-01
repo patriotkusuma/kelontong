@@ -30,13 +30,15 @@ class Products_model extends Model
         return $this->db->table($this->table)->insert($data);
     }
 
+    public function updateProduct($data, $id)
+    {
+        return $this->db->table($this->table)->update($data, ['product_id' => $id]);
+    }
+
     public function deleteProduct($id)
     {
         return $this->db->table($this->table)->delete(['product_id' => $id]);
     }
 
-    public function updateProduct($data, $id)
-    {
-        return $this->db->table($this->table)->update($data, ['product_id' => $id]);
-    }
+    
 }

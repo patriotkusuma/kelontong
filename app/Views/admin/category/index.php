@@ -111,7 +111,7 @@
                 },
                 { data: 'category_name' },
                 { 
-                    data: 'status' ,
+                    data: 'category_status' ,
                     mRender: function(data, type, row){
                         if(data == 'ACTIVE'){
                             return `<a class='btn btn-success'>`+data+`</a>`
@@ -152,7 +152,7 @@
                 success: function(data) {
                     $('#category_id').val(data['category_id']);
                     $('#category_name').val(data['category_name']);
-                    $('#category_status').val(data['status']);
+                    $('#category_status').val(data['category_status']);
                 }
             })
         }
