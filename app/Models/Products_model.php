@@ -30,9 +30,9 @@ class Products_model extends Model
         return $this->db->table($this->table)->insert($data);
     }
 
-    public function deleteCategory($id)
+    public function deleteProduct($id)
     {
-        return $this->db->table($this->table)->delete(['category_id' => $id]);
+        return $this->db->table($this->table)->delete(['product_id' => $id]);
     }
 
     public function updateCategory($data, $id)

@@ -29,6 +29,8 @@
                             <th>SKU</th>
                             <th>Name</th>
                             <th>Category</th>
+                            <th>Harga</th>
+                            <th>Stok</th>
                             <th>Status</th>
                             <th class="text-center">Action</th>
                         </tr>
@@ -132,6 +134,8 @@
                 {data: 'sku'},
                 {data: 'name'},
                 {data: 'category_name'},
+                {data: 'harga'},
+                {data: 'stok'},
                 {
                     data: 'status',
                     mRender: function(data, type, row){
@@ -281,7 +285,7 @@
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 $.ajax({
-                    url: '<?= base_url() ?>/admin/categories/' + id,
+                    url: '<?= base_url() ?>/admin/products/' + id,
                     type: 'delete',
                     error: function(data) {
                         Swal.fire({
@@ -292,13 +296,14 @@
                     },
                     success: function(data) {
                         table.ajax.reload();
+                        console.log(data['data']);
                         Swal.fire({
                             toast: true,
                             position: 'top-end',
                             showConfirmButton: false,
                             timer: 3000,
                             icon: 'success',
-                            title: 'Data Deteled Successfully',
+                            title: data['data'],
                         })
                     }
                 })

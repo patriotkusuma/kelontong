@@ -77,6 +77,32 @@ class Products extends BaseController
         
     }
 
+    public function delete($id = null){
+        $model = new Products_model();
+        $result = $model->deleteProduct($id);
+
+        if($result){
+            $msg = ['message' => 'Product Deleted Successfully'];
+            $response = [
+                'status'    => 200,
+                'error'     => false,
+                'data'      => $msg
+            ];
+
+            
+        }else{
+            $msg = ['message' => 'Product Deleted Failed'];
+            $response = [
+                'status'    => 500,
+                'error'     => false,
+                'data'      => $msg
+            ];
+        }
+
+        return json_encode($response);
+
+    }
+
 
 
     //--------------------------------------------------------------------
