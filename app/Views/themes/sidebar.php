@@ -62,7 +62,7 @@ $uri = $request->uri->getSegment(2) ?>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link <?= $uri == 'products' ? 'active' : '' ?>">
+                    <a href="<?= base_url('/admin/products') ?>" class="nav-link <?= $uri == 'products' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-shopping-cart"></i>
                         <p>
                             Products

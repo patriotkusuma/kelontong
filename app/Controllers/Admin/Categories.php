@@ -25,6 +25,13 @@ class Categories extends BaseController
 		return json_encode($data);
 	}
 
+	public function categoryActive(){
+		$model = new Categories_model();
+		$data['results'] = $model->where('status','ACTIVE')->findall();
+
+		return json_encode($data);
+	}
+
 	public function add()
 	{
 
