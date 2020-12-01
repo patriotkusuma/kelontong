@@ -45,9 +45,10 @@ $routes->get('/admin/categories/active', 'Admin\Categories::categoryActive');
 // Products
 $routes->get('/admin/products', 'Admin\Products::index');
 $routes->get('/admin/products/show', 'Admin\Products::show');
-$routes->post('/admin/products/add', 'Admin\Products::add');
 $routes->get('/admin/products/(:num)', 'Admin\Products::edit/$1');
 $routes->delete('/admin/products/(:num)', 'Admin\Products::delete/$1');
+$routes->post('/admin/products/add', 'Admin\Products::add');
+$routes->post('/admin/products/update/(:num)', 'Admin\Products::update/$1');
 
 /**
  * --------------------------------------------------------------------

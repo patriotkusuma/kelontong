@@ -35,12 +35,8 @@ class Products_model extends Model
         return $this->db->table($this->table)->delete(['product_id' => $id]);
     }
 
-    public function updateCategory($data, $id)
+    public function updateProduct($data, $id)
     {
-        $where = $this->db->table($this->table)->where('category_id', $id);
-
-        if ($where) {
-            return $where->update($data);
-        }
+        return $this->db->table($this->table)->update($data, ['product_id' => $id]);
     }
 }

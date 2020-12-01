@@ -202,11 +202,12 @@
                         );
                     })
                     $.each(data['product'], function(key, value){
+                        $('#product_id').val(value['product_id']);
                         $('#sku').val(value['sku']);
                         $('#name').val(value['name']);
                         $('#category_id').val(value['category_id']);
                         $('#harga').val(value['harga']);
-                        $('#stock').val(value['stock']);
+                        $('#stok').val(value['stok']);
                         $('#status').val(value['status']);
                         
                     });
@@ -219,15 +220,18 @@
     }
 
     function updateData() {
-        var id = $('#category_id').val();
-        var category_name = $('#category_name').val();
-        var category_status = $('#category_status').val();
+        var id = $('#product_id').val();
+        var sku = $('#sku').val();
+        var name = $('#name').val();
+        var category_id = $('#category_id').val();
+        var harga = $('#harga').val();
+        var stok = $('#stok').val();
+        var status = $('#status').val();
 
         $.ajax({
-            url: '<?= base_url() ?>/admin/categories/update/' + id,
+            url: '<?= base_url() ?>/admin/products/update/' + id,
             type: 'post',
-            data: 'category_name=' + category_name + '&category_status=' + category_status,
-            dataType: 'json',
+            data: 'sku='+sku+'&name='+name+'&category_id='+category_id+'&harga='+harga+'&stok='+stok+'&status'+status,
             success: function(data) {
                 $('#myModal').modal('hide');
                 table.ajax.reload();
