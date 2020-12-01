@@ -240,7 +240,7 @@
         var name = $('#name').val();
         var category_id = $('#category_id').val();
         var harga = $('#harga').val();
-        var stok = $('#stock').val();
+        var stok = $('#stok').val();
         var status = $('#status').val();
 
         $.ajax({
