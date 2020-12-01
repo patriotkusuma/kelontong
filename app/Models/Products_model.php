@@ -21,7 +21,7 @@ class Products_model extends Model
         if($id === false){
             return $this->db->table($this->table)
             ->join('categories','categories.category_id = products.category_id')
-            ->get()->getRowArray();
+            ->get()->getResultArray();
         }
     }
 

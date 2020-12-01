@@ -21,7 +21,7 @@ class Products extends BaseController
     public function show(){
         $model = new Products_model();
         
-        $data['results'][] = $model->getSpecified();
+        $data['results'] = $model->getSpecified();
 
         return json_encode($data);
 
