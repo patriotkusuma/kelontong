@@ -50,7 +50,7 @@
         </li>
         <?php else: ?>
             <li class="nav-item">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="<?= base_url('login') ?>" class="nav-link"><i class="fas fa-sign-in-alt"></i> Login</a>
             </li>
         <?php endif; ?>
         </ul>

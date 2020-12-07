@@ -35,14 +35,14 @@ class Validation
 
 	public $categories = [
 		'category_name'		=> 'required',
-		'status'			=> 'required',
+		'category_status'			=> 'required',
 	];
 
 	public $categories_errors = [
 		'category_name'		=> [
 			'required'		=> 'Nama kategory wajib diisi.',
 		],
-		'status'			=> [
+		'category_status'			=> [
 			'required'		=> 'Status category wajib diisi.'
 		]
 	];

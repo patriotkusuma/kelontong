@@ -179,6 +179,7 @@
             data: 'category_name=' + category_name + '&category_status=' + category_status,
             dataType: 'json',
             success: function(data) {
+                console.log(data);
                 $('#myModal').modal('hide');
                 table.ajax.reload();
 

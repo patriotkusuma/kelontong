@@ -28,7 +28,7 @@ class Categories extends BaseController
 
 	public function categoryActive(){
 		$model = new Categories_model();
-		$data['results'] = $model->where('status','ACTIVE')->findall();
+		$data['results'] = $model->where('category_status','ACTIVE')->findall();
 
 		return json_encode($data);
 	}
@@ -101,7 +101,7 @@ class Categories extends BaseController
 
 		$data = [
 			'category_name'		=> $name,
-			'category_status'			=> $status,
+			'category_status'	=> $status,
 		];
 
 		if ($validation->run($data, 'categories') == FALSE) {
