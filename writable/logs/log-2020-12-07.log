@@ -557,3 +557,20 @@ CRITICAL - 2020-12-07 15:06:50 --> Unable to connect to the database.
 #13 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
 #14 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
 #15 {main}
+CRITICAL - 2020-12-07 15:12:00 --> Unable to connect to the database.
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Model.php(398): CodeIgniter\Database\BaseBuilder->get()
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/myth/auth/src/Authentication/AuthenticationBase.php(137): CodeIgniter\Model->find('1')
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/myth/auth/src/Authentication/LocalAuthenticator.php(70): Myth\Auth\Authentication\AuthenticationBase->isLoggedIn()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/myth/auth/src/Helpers/auth_helper.php(14): Myth\Auth\Authentication\LocalAuthenticator->check()
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Views/home/index.php(40): logged_in()
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/patriot/...')
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('home/index', Array, true)
+#9 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Home.php(8): view('home/index', Array)
+#10 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Home->index()
+#11 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#12 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#13 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#14 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#15 {main}
