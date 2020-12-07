@@ -93,7 +93,7 @@
 
 <?= $this->section('custom_js') ?>
 <!-- Categories JS -->
-<script src="<?= base_url('themes/src/js') ?>/categories.js"></script>
+<script src="<?= base_url('src/js') ?>/categories.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
