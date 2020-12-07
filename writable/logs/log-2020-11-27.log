@@ -1,0 +1,48 @@
+CRITICAL - 2020-11-27 20:59:08 --> Unable to connect to the database.
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Models/Categories_model.php(9): CodeIgniter\Model->findAll()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Categories.php(10): App\Models\Categories_model->getCategories()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Categories->index()
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Categories))
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#10 {main}
+CRITICAL - 2020-11-27 20:59:32 --> Unable to connect to the database.
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Models/Categories_model.php(9): CodeIgniter\Model->findAll()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Categories.php(10): App\Models\Categories_model->getCategories()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Categories->index()
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Categories))
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#10 {main}
+CRITICAL - 2020-11-27 20:59:38 --> Unable to connect to the database.
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Models/Categories_model.php(9): CodeIgniter\Model->findAll()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Categories.php(10): App\Models\Categories_model->getCategories()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Categories->index()
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Categories))
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#10 {main}
+CRITICAL - 2020-11-27 21:00:52 --> Unable to connect to the database.
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(646): CodeIgniter\Database\BaseConnection->initialize()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Model.php(462): CodeIgniter\Database\BaseBuilder->get()
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Models/Categories_model.php(9): CodeIgniter\Model->findAll()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Categories.php(10): App\Models\Categories_model->getCategories()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Categories->index()
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Categories))
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#9 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#10 {main}

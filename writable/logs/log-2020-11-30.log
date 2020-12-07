@@ -1,0 +1,106 @@
+CRITICAL - 2020-11-30 16:07:41 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 16:07:54 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 16:08:38 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 16:09:03 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 16:10:43 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 21:25:41 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 21:27:46 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 21:27:47 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 21:30:33 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 21:31:42 --> Class 'App\Models\Products_model' not found
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Products->show()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Products))
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#5 {main}
+CRITICAL - 2020-11-30 23:33:02 --> Unknown column 'category_status' in 'where clause'
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2019): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Model.php(1818): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Models/Categories_model.php(21): CodeIgniter\Model->__call('getWhere', Array)
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Admin/Categories.php(30): App\Models\Categories_model->getCategoriesActive()
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Categories->categoryActive()
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Categories))
+#9 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#11 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#12 {main}
+CRITICAL - 2020-11-30 23:33:15 --> Unknown column 'category_status' in 'where clause'
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2019): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Model.php(1818): CodeIgniter\Database\BaseBuilder->getWhere(Array)
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Models/Categories_model.php(21): CodeIgniter\Model->__call('getWhere', Array)
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Admin/Categories.php(30): App\Models\Categories_model->getCategoriesActive()
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Categories->categoryActive()
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Categories))
+#9 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#11 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#12 {main}
+CRITICAL - 2020-11-30 23:41:10 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::findAll()
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Admin/Categories.php(30): App\Models\Categories_model->getCategoriesActive()
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Categories->categoryActive()
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Categories))
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#6 {main}
