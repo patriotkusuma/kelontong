@@ -15,7 +15,8 @@ class Products extends BaseController
     }
     public function index()
     {
-        return view('admin/products/index');
+		$data['title'] = 'Manage Products';
+        return view('admin/products/index', $data);
     }
 
     public function show(){

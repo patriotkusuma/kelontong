@@ -14,7 +14,8 @@ class Categories extends BaseController
 	}
 	public function index()
 	{
-		return view('admin/category/index');
+		$data['title'] = 'Manage Categories';
+		return view('admin/category/index', $data);
 	}
 
 	public function show()

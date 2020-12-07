@@ -34,7 +34,11 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 // Categories
-$routes->get('/admin/categories', 'Admin\Categories::index');
+$routes->group('admin', ['filter' => 'role:admin'], function($routes){
+	$routes->get('categories', 'Admin\Categories::index');
+	$routes->get('categories/index', 'Admin\Categories::index');
+});
+// $routes->get('/admin/categories', 'Admin\Categories::index', ['filter' => 'role:admin']);
 $routes->delete('/admin/categories/(:num)', 'Admin\Categories::delete/$1');
 $routes->get('/admin/categories/(:num)', 'Admin\Categories::edit/$1');
 $routes->post('/admin/categories/add', 'Admin\Categories::add');
@@ -43,7 +47,11 @@ $routes->post('/admin/categories/update/(:num)', 'Admin\Categories::update/$1');
 $routes->get('/admin/categories/active', 'Admin\Categories::categoryActive');
 
 // Products
-$routes->get('/admin/products', 'Admin\Products::index');
+$routes->group('admin', ['filter' => 'role:admin'], function($routes){
+	$routes->get('products', 'Admin\Products::index');
+	$routes->get('products/index', 'Admin\Products::index');
+});
+// $routes->get('/admin/products', 'Admin\Products::index');
 $routes->get('/admin/products/show', 'Admin\Products::show');
 $routes->get('/admin/products/(:num)', 'Admin\Products::edit/$1');
 $routes->delete('/admin/products/(:num)', 'Admin\Products::delete/$1');
