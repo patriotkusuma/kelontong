@@ -90,7 +90,188 @@
 </div>
 <?= $this->endSection() ?>
 <?= view('themes/body') ?>
-<script src="<?= base_url('src/js') ?>/categories.js"></script>
+<script>
+    var table;
+    $(document).ready(function() {
+        table = $('#table-category').DataTable( {
+            ajax: {
+                url: "<?= base_url('/admin/categories/show') ?>",
+                dataSrc: 'results'
+            },
+            responsive: true,
+            bInfo: false,
+            lengthMenu: [
+                [5, 10, 25],
+                [5, 10, 25],
+            ],
+            lengthChange: true,
+            bProcessing: true,
+            retrieve: true,
+            language: {
+                processing: "Sedang memuat data..",
+            },
+            columns: [
+                {   
+                    data: null,
+                    sortable: false,
+                    render: function(data, type, row, meta){
+                        return meta.row+1;
+                    }
+                },
+                { data: 'category_name' },
+                { 
+                    data: 'category_status' ,
+                    mRender: function(data, type, row){
+                        if(data == 'ACTIVE'){
+                            return `<a class='btn btn-success'>`+data+`</a>`
+                        }else{
+                            return `<a class='btn btn-danger'>`+data+`</a>`
+                        }
+                    }
+                }, 
+                {
+                    data: 'category_id',
+                    render: function(data, type, row){
+                        return `<a data-toggle="modal" onclick="submit(`+data+`)" class="btn btn-success" data-target="#myModal" ><i class="fas fa-edit"></i>Edit</a> <a class="btn btn-danger" onclick="deleteData(`+data+`)"><i class="fas fa-trash-alt"></i>Hapus</a>`
+                    },
+                    
+                }
+            ],
+        });
+    });
+
+    function submit(id) {
+
+        $('#category_name').val('');
+        $('#category_status').val('');
+
+        if (id == 'tambah') {
+            $('#myModalTitle').text('Tambah Data');
+            $('#btn-tambah').show();
+            $('#btn-ubah').hide();
+        } else {
+            $('#myModalTitle').text('Ubah Data');
+            $('#btn-tambah').hide();
+            $('#btn-ubah').show();
+
+            $.ajax({
+                url: '<?= base_url(); ?>/admin/categories/' + id,
+                type: 'get',
+                dataType: 'json',
+                success: function(data) {
+                    $('#category_id').val(data['category_id']);
+                    $('#category_name').val(data['category_name']);
+                    $('#category_status').val(data['category_status']);
+                }
+            })
+        }
+    }
+
+    function updateData() {
+        var id = $('#category_id').val();
+        var category_name = $('#category_name').val();
+        var category_status = $('#category_status').val();
+
+        $.ajax({
+            url: '<?= base_url() ?>/admin/categories/update/' + id,
+            type: 'post',
+            data: 'category_name=' + category_name + '&category_status=' + category_status,
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                $('#myModal').modal('hide');
+                table.ajax.reload();
+
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    icon: 'success',
+                    title: 'Update Data Successfully',
+                })
+            }
+        })
+    }
+
+    function tambahData() {
+        var category_name = $('#category_name').val();
+        var category_status = $('#category_status').val();
+
+        $.ajax({
+            url: '<?= base_url() ?>/admin/categories/add',
+            type: 'post',
+            data: 'category_name=' + category_name + '&category_status=' + category_status,
+            dataType: 'json',
+            success: function(data) {
+                if (data['status'] == 200) {
+                    table.ajax.reload();
+                    $('#myModal').modal('hide');
+                    Swal.fire({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        icon: 'success',
+                        title: 'Data Inserted Successfully',
+                    })
+                }
+            },
+        })
+    }
+
+    function deleteData(id) {
+        Swal.fire({
+            title: 'Apakah anda yakin?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: `Iya, Hapus saja!`,
+            cancelButtonText: `Tidak, Batal!`,
+            customClass: {
+                confirmButton: 'btn btn-danger mr-3',
+                cancelButton: 'btn btn-primary',
+            },
+            buttonsStyling: false,
+        }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= base_url() ?>/admin/categories/' + id,
+                    type: 'delete',
+                    error: function(data) {
+                        Swal.fire({
+                            title: 'Someting is wrong',
+                            icon: 'warning',
+                            text: data,
+                        })
+                    },
+                    success: function(data) {
+                        table.ajax.reload();
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            icon: 'success',
+                            title: 'Data Deteled Successfully',
+                        })
+                    }
+                })
+            } else {
+                Swal.fire({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    icon: 'info',
+                    title: 'Change are not save!',
+                    text: 'Your data is saved!'
+                })
+            }
+        })
+    }
+
+</script>
 
 <?= $this->section('custom_js') ?>
 <!-- Categories JS -->
