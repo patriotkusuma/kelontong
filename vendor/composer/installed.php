@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'v4.0.4',
-    'version' => '4.0.4.0',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => 'bffcfac8d8159a8bbd2fd1f57b85ece51aad9067',
     'name' => 'codeigniter4/appstarter',
   ),
   'versions' => 
   array (
     'codeigniter4/appstarter' => 
     array (
-      'pretty_version' => 'v4.0.4',
-      'version' => '4.0.4.0',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => 'bffcfac8d8159a8bbd2fd1f57b85ece51aad9067',
     ),
     'codeigniter4/framework' => 
     array (
@@ -96,6 +96,15 @@
       array (
         0 => '1.10.2',
       ),
+    ),
+    'myth/auth' => 
+    array (
+      'pretty_version' => '1.0-beta.3',
+      'version' => '1.0.0.0-beta3',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '85572d1f1bb312d7d2e0a444b45531170773d2de',
     ),
     'phar-io/manifest' => 
     array (
