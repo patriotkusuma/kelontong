@@ -1,10 +1,12 @@
 
+<?php $request = \Config\Services::request();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | Top Navigation</title>
+
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -31,8 +33,8 @@
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="index3.html" class="nav-link">Home</a>
+          <li class="nav-item <?= $request->uri->getSegment(0)==''?'active': '' ?>">
+            <a href="<?= base_url() ?>" class="nav-link ">Home</a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">Contact</a>
