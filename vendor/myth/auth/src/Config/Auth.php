@@ -12,7 +12,7 @@ class Auth extends BaseConfig
     //
     // i.e. $defaultUserGroup = 'guests';
     //
-    public $defaultUserGroup = 'admin';
+    public $defaultUserGroup = 'user';
 
     //--------------------------------------------------------------------
     // Libraries
