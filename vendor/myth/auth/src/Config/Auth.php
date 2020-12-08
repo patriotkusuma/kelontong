@@ -119,6 +119,7 @@ class Auth extends BaseConfig
     // public $requireActivation = false;
     public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
 
+
     //--------------------------------------------------------------------
     // Allow to reset password via email
     //--------------------------------------------------------------------
