@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?= base_url('favicon.ico') ?>">
 
     <title><?= isset($title) ? $title : 'Kelontong' ?></title>
 
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/themes/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= base_url() ?>/themes/dist/css/adminlte.min.css">
+
 
     <?= $this->renderSection('custom_css') ?>
 </head>
