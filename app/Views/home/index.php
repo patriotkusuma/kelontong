@@ -22,7 +22,7 @@
   <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
     <div class="container">
       <a href="<?= base_url() ?>" class="navbar-brand">
-        <img src="<?= base_url() ?>/img/logggooo.png"  alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <img src="<?= base_url() ?>/img/LogoKelontong.png"  alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">Kelontong</span>
       </a>
 
@@ -44,7 +44,7 @@
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle"><?= user()->username ?></a>
             <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                 <?php if(in_groups('admin')): ?>
-                    <li><a href="<?= base_url('admin/categories') ?>" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="<?= base_url('admin/dashboard') ?>" class="dropdown-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <hr class="dropdown-divider">
                 <?php endif; ?>
                 <li><a href="<?= base_url('logout') ?>" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
