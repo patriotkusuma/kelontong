@@ -37,6 +37,8 @@ $routes->get('/', 'Home::index');
 $routes->group('admin', ['filter' => 'role:admin'], function($routes){
 	$routes->get('categories', 'Admin\Categories::index');
 	$routes->get('categories/index', 'Admin\Categories::index');
+	$routes->get('dashboard', 'Admin\Dashboard::index');
+	$routes->get('dashboard/index', 'Admin\Dashboard::index');
 });
 // $routes->get('/admin/categories', 'Admin\Categories::index', ['filter' => 'role:admin']);
 $routes->delete('/admin/categories/(:num)', 'Admin\Categories::delete/$1');

@@ -38,7 +38,7 @@ $uri = $request->uri->getSegment(2) ?>
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item ">
-                    <a href="#" class="nav-link <?= $uri == 'Dashboard' ? 'active' : '' ?>">
+                    <a href="<?= base_url('admin/dashboard') ?>" class="nav-link <?= $uri == 'dashboard' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
