@@ -2,10 +2,16 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="card card-outline card-primary">
-    <div class="card-header text-center">
-      <a href="<?= base_url() ?>" class="h1"><b>Admin</b>LTE</a>
-    </div>
     <div class="card-body">
+    <div class="login-logo">
+        <a href="<?= base_url() ?>">
+          <img width="40%" src="<?= base_url('img/LogoKelontong.png') ?>" alt="">
+        </a>
+      </div>
+      <div class="text-center">
+        <h4 class="text-success" style="font-weight: 500;"> Kelontong</h4>
+        <p class="text-primary" style="font-weight: 100; margin-top: -3%;">BEST PRICE GOOD DEALS</p>
+      </div>
       <p class="login-box-msg"><?=lang('Auth.resetYourPassword')?></p>
       <?= view('Myth\Auth\Views\_message_block') ?>
 

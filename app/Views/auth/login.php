@@ -1,12 +1,21 @@
 <?= view('themes/head') ?>
 <body class="hold-transition login-page">
 <div class="login-box">
-  <div class="login-logo">
-    <a href="<?= base_url() ?>"><b>Admin</b>LTE</a>
-  </div>
+
   <!-- /.login-logo -->
   <div class="card">
+  
     <div class="card-body login-card-body">
+      <div class="login-logo">
+        <a href="<?= base_url() ?>">
+          <img width="40%" src="<?= base_url('img/LogoKelontong.png') ?>" alt="">
+        </a>
+      </div>
+      <div class="text-center">
+        <h4 class="text-success" style="font-weight: 500;"> Kelontong</h4>
+        <p class="text-primary" style="font-weight: 100; margin-top: -3%;">BEST PRICE GOOD DEALS</p>
+      </div>
+
       <p class="login-box-msg">Sign in to start your session</p>
 
       <?= view('Myth\Auth\Views\_message_block') ?>
