@@ -17,9 +17,13 @@ $totalSegments = $request->uri->getTotalSegments() ?>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="<?= base_url() ?>">HOME</a></li>
-                <?php for ($i = 0; $i < $totalSegments; $i++) : ?>
-                  <li class="breadcrumb-item active"><a href="#"><?= $request->uri->getSegment($i) ?></a></li>
+                <li class="breadcrumb"><a href="<?= base_url() ?>">HOME</a></li>
+                <?php for ($i = 0; $i <= $totalSegments; $i++) : ?>
+                  <?php if($i == $totalSegments): ?>
+                    <li class="breadcrumb-item <?= $totalSegments == $i? 'active' : '' ?>"><?= $request->uri->getSegment($i) ?></li>
+                  <?php else: ?>
+                  <li class="breadcrumb-item"><a href="<?= base_url($request->uri->getSegment($i)) ?>"><?= $request->uri->getSegment($i) ?></a></li>
+                  <?php endif; ?>
                 <?php endfor; ?>
               </ol>
             </div><!-- /.col -->
