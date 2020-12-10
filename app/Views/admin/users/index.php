@@ -33,7 +33,7 @@
             <!-- /.card-header -->
             <div class="card-body table-responsive p-16" style="width: 100%;">
                 <table class="table table-head-fixed text-nowrap" id="table-user" style="width: 100%;">
-                    <thead style="width: 20%;">
+                    <thead ></thead>
                         <tr>
                             <th></th>
                             <th>Profile</th>
@@ -44,7 +44,7 @@
                             <th class="text-center">Action</th>
                         </tr>
                     </thead>
-                    <tbody id="table-body" style="width: 100%;">
+                    <tbody id="table-body"">
 
                     </tbody>
                 </table>
