@@ -31,8 +31,8 @@
                 </div>
             </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-16">
-                <table class="table table-head-fixed text-nowrap" id="table-product">
+            <div class="card-body table-responsive p-16" style="width: 100%;">
+                <table class="table table-head-fixed text-nowrap" id="table-product" style="width: 100%;">
                     <thead>
                         <tr>
                             <th></th>
