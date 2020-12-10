@@ -110,8 +110,9 @@
 </div>
 <?= $this->endSection() ?>
 <?= view('themes/body') ?>
-
 <script src="<?= base_url() ?>/src/js/products.js"></script>
+
+<?= $this->section('custom_js') ?>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
@@ -128,5 +129,5 @@
 <!-- DataTables  & Plugins -->
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
-
+<?= $this->endSection() ?>
 <?= view('themes/footer') ?>
