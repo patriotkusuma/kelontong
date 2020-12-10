@@ -36,12 +36,21 @@ $routes->get('/admin', 'Admin\Dashboard::index', ['filter' => 'role:admin']);
 
 // Categories
 $routes->group('admin', ['filter' => 'role:admin'], function($routes){
-	$routes->get('categories', 'Admin\Categories::index');
-	$routes->get('categories/index', 'Admin\Categories::index');
+	// Dashboard
 	$routes->get('dashboard', 'Admin\Dashboard::index');
 	$routes->get('dashboard/index', 'Admin\Dashboard::index');
+
+	// Categories
+	$routes->get('categories', 'Admin\Categories::index');
+	$routes->get('categories/index', 'Admin\Categories::index');
+
+	// Products
 	$routes->get('products', 'Admin\Products::index');
 	$routes->get('products/index', 'Admin\Products::index');
+
+	// Users
+	$routes->get('users', 'Admin\Users::index');
+	$routes->get('users/index', 'Admin\Users::index');
 });
 // $routes->get('/admin/categories', 'Admin\Categories::index', ['filter' => 'role:admin']);
 $routes->delete('/admin/categories/(:num)', 'Admin\Categories::delete/$1');

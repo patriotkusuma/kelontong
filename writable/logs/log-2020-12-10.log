@@ -1,0 +1,40 @@
+CRITICAL - 2020-12-10 12:03:35 --> Invalid file: admin/user/index.php
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/View/View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/user/inde...')
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('admin/user/inde...', Array, true)
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Admin/Users.php(25): view('admin/user/inde...')
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Users->index()
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Users))
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#8 {main}
+CRITICAL - 2020-12-10 12:15:00 --> Undefined variable: data
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Views/admin/users/index.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/patriot/...', 34, Array)
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/patriot/...')
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('admin/users/ind...', Array, true)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Admin/Users.php(25): view('admin/users/ind...')
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Users->index()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Users))
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#9 {main}
+CRITICAL - 2020-12-10 12:15:36 --> Undefined variable: title
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Views/admin/users/index.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', '/Users/patriot/...', 34, Array)
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/View/View.php(246): include('/Users/patriot/...')
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Common.php(1119): CodeIgniter\View\View->render('admin/users/ind...', Array, true)
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Admin/Users.php(25): view('admin/users/ind...')
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Users->index()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Users))
+#6 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#8 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#9 {main}
+CRITICAL - 2020-12-10 12:30:09 --> Call to undefined method App\Models\Users_model::getResult
+#0 /Users/patriot/Documents/Codeigniter/final project/kelontong/app/Controllers/Admin/Users.php(21): CodeIgniter\Model->__call('getResult', Array)
+#1 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Admin\Users->index()
+#2 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin\Users))
+#3 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 /Users/patriot/Documents/Codeigniter/final project/kelontong/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#5 /Users/patriot/Documents/Codeigniter/final project/kelontong/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(34): require_once('/Users/patriot/...')
+#6 {main}

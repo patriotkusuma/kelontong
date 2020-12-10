@@ -46,7 +46,7 @@ $uri = $request->uri->getSegment(2) ?>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link <?= $uri == 'users' ? 'active' : '' ?>">
+                    <a href="<?= base_url('admin/users') ?>" class="nav-link <?= $uri == 'users' ? 'active' : '' ?>">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
