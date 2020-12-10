@@ -177,6 +177,7 @@
         $('#sku').val('');
         $('#name').val('');
         $('#category_id').val('');
+        $('#category_id').empty();
         $('#harga').val('');
         $('#stok').val('');
         $('#status').val('');
